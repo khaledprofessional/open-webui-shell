@@ -1,63 +1,94 @@
-<div align="center">🚀 Open WebUI Shell</div>
-<div align="center">A premium desktop experience for the local AI era</div>
-
 <div align="center">
 
-https://img.shields.io/badge/Platform-Windows_11-0078D4?style=for-the-badge&logo=windows11&logoColor=white
-https://img.shields.io/badge/Built_with-Electron-47848F?style=for-the-badge&logo=electron&logoColor=white
-https://img.shields.io/badge/License-MIT-green?style=for-the-badge
-https://img.shields.io/badge/Status-Stable-blue?style=for-the-badge
+# Open WebUI Shell
+
+**A premium desktop experience for the local AI era.**
 
 </div>
-📖 Overview
 
-Open WebUI Shell is a specialized Electron-based desktop wrapper designed to bring your local AI interface into a native Windows 11 environment.
-It enhances your workflow by combining:
+---
 
-    ⚡ Fast access
+## 📖 Overview
 
-    🎨 Modern Windows aesthetics
+**Open WebUI Shell** is a specialized **Electron-based desktop wrapper** that bridges the gap between a **web-based AI interface** and a **native Windows experience**.
 
-    🖥️ A clean, integrated desktop experience
+Designed with **performance, usability, and aesthetics** in mind, it embraces **Windows 11’s modern design language** to make running local AI models (such as `gemma3:4b`) feel **fast, integrated, and effortless**—without living in a browser tab.
 
-Whether you're running local models like gemma3:4b, or hosting your own Open WebUI instance, this shell makes the experience feel native, polished, and always within reach.
-🌟 Key Features
-Feature	Description
-🪟 Mica & Acrylic Effects	Native Windows 11 translucency for a premium, modern look.
-📥 Tray Integration	Minimize to tray to keep your taskbar clean and organized.
-⌨️ Global Hotkey (Alt + Space)	Instantly summon or hide your AI interface from anywhere.
-💾 Smart Save	Automatically remembers your custom URL/IP/Port.
-🛠️ Custom CSS Enhancements	Hardcoded UI tweaks optimized for desktop window usage.
-⚙️ Lightweight Electron Wrapper	No bloat — just a clean, fast, native-feeling shell.
-⚠️ Important Notes
+> [!NOTE]
+> This application does **not** reimplement Open WebUI.  
+> It simply provides a **native Windows shell** around it.
 
-    [!IMPORTANT]
-    This is not the official Open WebUI application.  
-    It is a community-built wrapper designed to enhance the desktop experience while respecting all upstream branding requirements.
+---
 
-    [!WARNING]
-    Do not redistribute modified versions using the name Open WebUI or its official branding.
-    The name Open WebUI Shell is intentionally distinct to comply with licensing rules.
+## 🌟 Key Features
+
+| Feature | Description |
+|------|------------|
+| 🪟 **Mica & Acrylic Effects** | Native Windows 11 translucency for a premium desktop look |
+| 📥 **Tray Integration** | Minimize to the system tray to keep your taskbar clean |
+| ⌨️ **Alt + Space Hotkey** | Instantly summon or hide your AI from anywhere |
+| 💾 **Smart Save** | Persistent URL handling (remembers custom IP & port) |
+| 🛠️ **Custom CSS Tweaks** | Desktop-optimized layout and UI adjustments |
+
+> [!TIP]
+> Perfect for users running **local LLMs** who want a distraction-free, native workflow.
+
+---
+
+## 🚀 Getting Started
+
+### Installation
+
+1. Visit the **Official Releases** page  
+2. Download `Open-WebUI-Shell-Setup-1.0.0.exe`
+3. Run the installer
+4. Launch from the **Start Menu**
+
+> [!IMPORTANT]
+> Open WebUI must already be running locally for the shell to connect.
+
+---
+
+## 🏗️ Development Setup
+
+If you want to build or customize the project locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/khaledprofessional/open-webui-shell.git
+
+# Navigate into the project
+cd open-webui-shell
+
+# Install dependencies
+npm install
+
+# Run in development mode
+npm start
+
+# Compile for production
+npm run dist
 
     [!NOTE]
-    All content displayed inside the shell is still governed by the Open WebUI License.
+    The project uses Electron and standard Node.js tooling.
 
-    [!TIP]
-    If your Open WebUI instance runs on a custom port (e.g., http://localhost:3000), simply enter it once — the app will remember it automatically.
+🛡️ License & Branding
 
-🚀 Getting Started
-🔧 Installation
+This project is licensed under the MIT License.
 
-    Head to the Releases (github.com in Bing) page.
+    [!IMPORTANT]
+    Open WebUI Branding & Licensing Notice
 
-    Download:
-    Open-WebUI-Shell-Setup-1.0.0.exe
+        This project is community-driven
 
-    Run the installer.
+        All official Open WebUI branding, logos, and icons are preserved
 
-    Launch from the Start Menu or pin it to your taskbar for quick access.
+        The application name “Open WebUI Shell” clearly distinguishes it from the upstream project
 
-🏗️ Development Setup
+        All content rendered inside the shell remains subject to the Open WebUI License
 
-If you'd like to build the project yourself:
-bash
+    [!WARNING]
+    This project is not affiliated with or endorsed by Open WebUI.
+    It is provided strictly as a third-party desktop wrapper.
+
+<div align="center"> <sub>Built with care by <strong>Khalid Jehani</strong></sub> </div> ``` 
