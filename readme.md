@@ -1,51 +1,93 @@
-Open WebUI Shell 🚀
+<div align="center">
 
-A lightweight Electron-based desktop shell for Open WebUI featuring native Windows 11 integration and persistent instance management.
+🖥️ Open WebUI Shell
 
-✨ Features
+A premium desktop experience for the local AI era.
 
-Native Window Controls: Seamless integration with Windows 11 title bar (Mica/Acrylic).
+</div>
 
-Always on Top: Toggle stay-on-top mode via the system tray.
+📖 Overview
 
-Quick Toggle: Use Alt + Space to show or hide the window instantly.
+Open WebUI Shell is a specialized Electron-based wrapper designed to bridge the gap between your web-based AI interface and a native Windows experience. Built with performance and aesthetics in mind, it leverages Windows 11's modern design language to make your local AI workflow (running models like gemma3:4b) feel integrated, fast, and accessible.
 
-Persistent Connection: Automatically remembers and reconnects to your custom URL/Port on launch.
+🌟 Key Features
 
-Deep Integration: Custom CSS injections to optimize the interface for desktop use.
+Feature
 
-🛠️ Installation
+Description
 
-Download: Grab the latest .exe installer from the Releases page.
+🪟 Mica & Acrylic
 
-Run: The installer will set up the application on your system.
+Native Windows 11 translucency effects for a premium look.
 
-Connect: By default, it looks for http://localhost:8080. Use the tray icon to change this.
+📥 Tray Integration
 
-🏗️ Development
+Minimize to the system tray to keep your taskbar clean.
+
+⌨️ Alt + Space
+
+Global hotkey to summon or hide your AI instantly.
+
+💾 Smart Save
+
+Persistent URL management—it remembers your custom IP/Port.
+
+🛠️ Custom CSS
+
+Hardcoded UI tweaks to optimize the layout for desktop windows.
+
+🚀 Getting Started
+
+Installation
+
+Visit the Official Releases page.
+
+Download the Open-WebUI-Shell-Setup-1.0.0.exe.
+
+Run the installer and launch it from your Start Menu.
+
+Hardware Compatibility
+
+This shell is tested and optimized for high-performance local AI setups, specifically:
+
+GPU: RTX 4060 Ti (6GB VRAM)
+
+CPU: AMD Ryzen 7 7700X
+
+RAM: 48GB 5200 MT/s
+
+🏗️ Development Setup
+
+If you want to build from source on your machine:
+
+# Clone the repository
+git clone [https://github.com/khaledprofessional/open-webui-shell.git](https://github.com/khaledprofessional/open-webui-shell.git)
 
 # Install dependencies
 npm install
 
-# Run app
+# Run in development mode
 npm start
 
-# Build installer
+# Compile for production
 npm run dist
 
 
-📜 License & Branding Notice
+🛡️ License & Branding
 
-This desktop shell is licensed under the MIT License.
+This project is licensed under the MIT License.
 
-Important Note on Open WebUI Licensing
+[!IMPORTANT]
+Important Note on Open WebUI Branding
 
-This project is a community-driven wrapper for Open WebUI.
+This project is a community-driven wrapper.
 
-Branding: In accordance with the Open WebUI License, all official branding, logos, and icons are preserved. This app is named "Open WebUI Shell" to remain distinct from the official project.
+Branding: In accordance with the Open WebUI License, all official branding, logos, and icons are preserved.
 
-Upstream Licenses: Content loaded within this shell is subject to the Open WebUI License.
+Distinction: This app is explicitly named "Open WebUI Shell" to remain distinct from the official upstream project.
 
-Shell License: The MIT license applies only to the Electron wrapper code in this repository.
+Upstream Terms: Content loaded within this shell is subject to the Open WebUI License.
 
-Created by Khalid Jehani
+<div align="center">
+<sub>Built with ❤️ by Khalid Jehani</sub>
+</div>
