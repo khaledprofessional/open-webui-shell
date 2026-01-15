@@ -69,9 +69,9 @@ This project is licensed under the **MIT License**.
 > **Open WebUI Branding & Licensing**
 >
 > - Community-driven project  
-> - Official Open WebUI branding is preserved  
+> - All official Open WebUI branding and logos are preserved  
 > - “Open WebUI Shell” is distinct from upstream  
-> - Rendered content remains under the Open WebUI License
+> - Rendered Open WebUI content remains subject to the Open WebUI License
 
 > [!WARNING]
 > This project is **not affiliated with or endorsed by Open WebUI**.
