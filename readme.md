@@ -1,8 +1,8 @@
 <div align="center">
 
-🖥️ Open WebUI Shell
+# **Open WebUI Shell**
 
-A premium desktop experience for the local AI era.
+## **A premium desktop experience for the local AI era.**
 
 </div>
 
@@ -45,16 +45,6 @@ Visit the Official Releases page.
 Download the Open-WebUI-Shell-Setup-1.0.0.exe.
 
 Run the installer and launch it from your Start Menu.
-
-Hardware Compatibility
-
-This shell is tested and optimized for high-performance local AI setups, specifically:
-
-GPU: RTX 4060 Ti (6GB VRAM)
-
-CPU: AMD Ryzen 7 7700X
-
-RAM: 48GB 5200 MT/s
 
 🏗️ Development Setup
 
