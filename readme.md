@@ -10,13 +10,12 @@
 
 ## 📖 Overview
 
-**Open WebUI Shell** is a specialized **Electron-based desktop wrapper** that bridges the gap between a **web-based AI interface** and a **native Windows experience**.
+Open WebUI Shell is an Electron-based desktop wrapper that bridges a web-based AI interface with a native Windows experience.
 
-Designed with **performance, usability, and aesthetics** in mind, it embraces **Windows 11’s modern design language** to make running local AI models (such as `gemma3:4b`) feel **fast, integrated, and effortless**—without living in a browser tab.
+It is designed to feel fast, integrated, and native when running local AI models such as `gemma3:4b`.
 
 > [!NOTE]
-> This application does **not** reimplement Open WebUI.  
-> It simply provides a **native Windows shell** around it.
+> This project is a desktop **wrapper**, not a reimplementation of Open WebUI.
 
 ---
 
@@ -24,14 +23,11 @@ Designed with **performance, usability, and aesthetics** in mind, it embraces **
 
 | Feature | Description |
 |------|------------|
-| 🪟 **Mica & Acrylic Effects** | Native Windows 11 translucency for a premium desktop look |
-| 📥 **Tray Integration** | Minimize to the system tray to keep your taskbar clean |
-| ⌨️ **Alt + Space Hotkey** | Instantly summon or hide your AI from anywhere |
-| 💾 **Smart Save** | Persistent URL handling (remembers custom IP & port) |
-| 🛠️ **Custom CSS Tweaks** | Desktop-optimized layout and UI adjustments |
-
-> [!TIP]
-> Perfect for users running **local LLMs** who want a distraction-free, native workflow.
+| 🪟 Mica & Acrylic | Windows 11 translucency effects |
+| 📥 Tray Integration | Minimize to system tray |
+| ⌨️ Alt + Space | Global hotkey |
+| 💾 Smart Save | Persistent IP & port |
+| 🛠️ Custom CSS | Desktop-optimized UI |
 
 ---
 
@@ -39,13 +35,12 @@ Designed with **performance, usability, and aesthetics** in mind, it embraces **
 
 ### Installation
 
-1. Visit the **Official Releases** page  
-2. Download `Open-WebUI-Shell-Setup-1.0.0.exe`
-3. Run the installer
-4. Launch from the **Start Menu**
+1. Download the installer from **Releases**
+2. Run `Open-WebUI-Shell-Setup-1.0.0.exe`
+3. Launch from Start Menu
 
 > [!IMPORTANT]
-> Open WebUI must already be running locally for the shell to connect.
+> Open WebUI must already be running locally.
 
 ---
 
@@ -53,42 +48,36 @@ Designed with **performance, usability, and aesthetics** in mind, it embraces **
 
 If you want to build or customize the project locally:
 
-```bash
-# Clone the repository
+~~~bash
 git clone https://github.com/khaledprofessional/open-webui-shell.git
-
-# Navigate into the project
 cd open-webui-shell
-
-# Install dependencies
 npm install
-
-# Run in development mode
 npm start
-
-# Compile for production
 npm run dist
+~~~
 
-    [!NOTE]
-    The project uses Electron and standard Node.js tooling.
+> [!NOTE]
+> The project uses Electron and standard Node.js tooling.
 
-🛡️ License & Branding
+---
 
-This project is licensed under the MIT License.
+## 🛡️ License & Branding
 
-    [!IMPORTANT]
-    Open WebUI Branding & Licensing Notice
+This project is licensed under the **MIT License**.
 
-        This project is community-driven
+> [!IMPORTANT]
+> **Open WebUI Branding & Licensing**
+>
+> - Community-driven project  
+> - Official Open WebUI branding is preserved  
+> - “Open WebUI Shell” is distinct from upstream  
+> - Rendered content remains under the Open WebUI License
 
-        All official Open WebUI branding, logos, and icons are preserved
+> [!WARNING]
+> This project is **not affiliated with or endorsed by Open WebUI**.
 
-        The application name “Open WebUI Shell” clearly distinguishes it from the upstream project
+---
 
-        All content rendered inside the shell remains subject to the Open WebUI License
-
-    [!WARNING]
-    This project is not affiliated with or endorsed by Open WebUI.
-    It is provided strictly as a third-party desktop wrapper.
-
-<div align="center"> <sub>Built with care by <strong>Khalid Jehani</strong></sub> </div> ``` 
+<div align="center">
+<sub>Built with care by <strong>Khalid Jehani</strong></sub>
+</div>
