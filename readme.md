@@ -12,7 +12,7 @@
 
 Open WebUI Shell is an Electron-based desktop wrapper that bridges a web-based AI interface with a native Windows experience.
 
-It is designed to feel fast, integrated, and native when running local AI models such as `gemma3:4b`.
+It is designed to feel fast, integrated, and native when running local AI models.
 
 > [!NOTE]
 > This project is a desktop **wrapper**, not a reimplementation of Open WebUI.
