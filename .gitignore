@@ -1,0 +1,16 @@
+Dependencies
+
+node_modules/
+
+Build output
+
+dist/
+
+Operating system files
+
+Thumbs.db
+.DS_Store
+
+Local config (if generated during testing)
+
+config.json
