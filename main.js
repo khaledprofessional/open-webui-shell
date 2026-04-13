@@ -2,7 +2,7 @@ const { app, BrowserWindow, Menu, Tray, nativeImage, shell, ipcMain, globalShort
 const path = require('path');
 const fs = require('fs').promises;
 
-let mainWindow;
+let mainWindow = null;
 let tray;
 
 // Path for persistent settings
@@ -96,11 +96,22 @@ function createWindow() {
     });
 
     mainWindow.webContents.setWindowOpenHandler(({ url }) => {
-        if (!url.startsWith(CONFIG.url)) {
+        try {
+            const targetOrigin = new URL(url).origin;
+            const appOrigin = new URL(CONFIG.url).origin;
+            if (targetOrigin !== appOrigin) {
+                shell.openExternal(url);
+                return { action: 'deny' };
+            }
+        } catch (e) {
             shell.openExternal(url);
             return { action: 'deny' };
         }
         return { action: 'allow' };
+    });
+
+    mainWindow.on('closed', () => {
+        mainWindow = null;
     });
 
     mainWindow.webContents.on('did-finish-load', () => {
@@ -117,6 +128,10 @@ function createWindow() {
     });
 }
 
+function escapeHtml(str) {
+    return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 function promptForUrl() {
     let promptWin = new BrowserWindow({
         width: 420,
@@ -131,11 +146,12 @@ function promptForUrl() {
         }
     });
 
+    const safeUrl = escapeHtml(CONFIG.url);
     const promptHtml = `
     <body style="background: #111; color: #fff; font-family: sans-serif; padding: 25px; border: 1px solid #333; -webkit-app-region: drag;">
         <h3 style="margin: 0 0 10px 0; font-weight: 500;">Open WebUI Shell Connection</h3>
         <p style="font-size: 12px; color: #888; margin-bottom: 15px;">Enter the address of your instance:</p>
-        <input id="urlInput" type="text" value="${CONFIG.url}" style="width: 100%; padding: 10px; background: #222; color: #fff; border: 1px solid #444; border-radius: 6px; outline: none; -webkit-app-region: no-drag;" autofocus />
+        <input id="urlInput" type="text" value="${safeUrl}" style="width: 100%; padding: 10px; background: #222; color: #fff; border: 1px solid #444; border-radius: 6px; outline: none; -webkit-app-region: no-drag;" autofocus />
         <div style="margin-top: 20px; display: flex; justify-content: flex-end; gap: 12px; -webkit-app-region: no-drag;">
             <button onclick="window.close()" style="background: transparent; color: #888; border: none; cursor: pointer;">Cancel</button>
             <button onclick="submit()" style="background: #3b82f6; color: white; border: none; padding: 8px 20px; border-radius: 6px; cursor: pointer; font-weight: 500;">Connect</button>
@@ -182,6 +198,7 @@ if (!app.requestSingleInstanceLock()) {
         createWindow();
         
         globalShortcut.register(CONFIG.toggleShortcut, () => {
+            if (!mainWindow) return;
             if (mainWindow.isVisible() && mainWindow.isFocused()) {
                 mainWindow.hide();
             } else {
@@ -191,6 +208,7 @@ if (!app.requestSingleInstanceLock()) {
         });
 
         globalShortcut.register(CONFIG.devToolsShortcut, () => {
+            if (!mainWindow) return;
             if (mainWindow.webContents.isDevToolsOpened()) {
                 mainWindow.webContents.closeDevTools();
             } else {
@@ -202,16 +220,16 @@ if (!app.requestSingleInstanceLock()) {
         tray = new Tray(trayIcon);
         
         const contextMenu = Menu.buildFromTemplate([
-            { label: 'Open Shell', click: () => { mainWindow.show(); mainWindow.focus(); } },
+            { label: 'Open Shell', click: () => { if (!mainWindow) { createWindow(); } else { mainWindow.show(); mainWindow.focus(); } } },
             { type: 'separator' },
             { label: 'Connect to Instance...', click: () => promptForUrl() },
             { 
                 label: 'Always on Top', 
                 type: 'checkbox', 
                 checked: false,
-                click: (item) => mainWindow.setAlwaysOnTop(item.checked)
+                click: (item) => { if (mainWindow) mainWindow.setAlwaysOnTop(item.checked); }
             },
-            { label: 'Reload', click: () => mainWindow.reload() },
+            { label: 'Reload', click: () => { if (mainWindow) mainWindow.reload(); } },
             { type: 'separator' },
             { label: 'Quit', click: () => app.quit() }
         ]);
