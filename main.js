@@ -1,4 +1,9 @@
-const { app, BrowserWindow, Menu, Tray, nativeImage, shell, ipcMain, globalShortcut } = require('electron');
+const { app, Menu, nativeImage, shell, ipcMain, globalShortcut } = require('electron');
+const path = require('path');
+const fs = require('fs').promises;
+const ConfigManager = require('./ConfigManager');
+const WindowManager = require('./WindowManager');
+const TrayManager = require('./TrayManager');
 const path = require('path');
 const fs = require('fs').promises;
 
