@@ -1,6 +1,6 @@
 const { app, BrowserWindow, Menu, Tray, nativeImage, shell, ipcMain, globalShortcut } = require('electron');
 const path = require('path');
-const fs = require('fs');
+const fs = require('fs').promises;
 
 let mainWindow;
 let tray;
@@ -29,22 +29,26 @@ const CONFIG = {
 };
 
 // Load saved URL on startup
-function loadSavedSettings() {
+async function loadSavedSettings() {
     try {
-        if (fs.existsSync(configPath)) {
-            const data = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-            if (data.url) CONFIG.url = data.url;
-        }
+        let stats;
+        await fs.stat(configPath);
+        const data = JSON.parse(await fs.readFile(configPath, 'utf8'));
+        if (data.url) CONFIG.url = data.url;
     } catch (e) {
-        console.error("Failed to load settings", e);
+        // Handle ENOENT error specifically for file not found if needed, 
+        // but catching generic error is sufficient for now as per original logic.
+        if (e.code !== 'ENOENT') {
+            console.error("Failed to load settings", e);
+        }
     }
 }
 
 // Save URL to disk
-function saveSettings(newUrl) {
+async function saveSettings(newUrl) {
     try {
-        const data = { url: newUrl };
-        fs.writeFileSync(configPath, JSON.stringify(data));
+        const data = JSON.stringify({ url: newUrl }, null, 4); // Use indentation for readability
+        await fs.writeFile(configPath, data);
     } catch (e) {
         console.error("Failed to save settings", e);
     }
@@ -109,7 +113,7 @@ function createWindow() {
             }
             button, a, input, textarea, [role="button"] { -webkit-app-region: no-drag !important; }
         `);
-        if (CONFIG.customCSS) mainWindow.webContents.insertCSS(CONFIG.customCSS);
+        if (CONFIG.customCSS) mainWindow.webContents.insertCSS(sanitizeCSS(CONFIG.customCSS));
     });
 }
 
@@ -154,11 +158,11 @@ function promptForUrl() {
     promptWin.loadURL(`data:text/html;charset=utf-8,${encodeURIComponent(promptHtml)}`);
 }
 
-ipcMain.on('update-url', (event, newUrl) => {
+ipcMain.on('update-url', async (event, newUrl) => {
     let finalUrl = newUrl;
     if (!newUrl.startsWith('http')) finalUrl = 'http://' + newUrl;
     CONFIG.url = finalUrl;
-    saveSettings(finalUrl); // Persist the new URL
+    await saveSettings(finalUrl); // Await the asynchronous save operation
     if (mainWindow) mainWindow.loadURL(CONFIG.url);
 });
 
